@@ -7,15 +7,16 @@ permissions:
   id-token: write 
   contents: read 
     
-env:
-  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  aws-region: ${{ secrets.AWS_REGION }}
+
 
 jobs:
   build:
     environment: Dev
     runs-on: ubuntu-latest
+    env:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: ${{ secrets.AWS_REGION }}
     steps:
       
       - name: Checkout
